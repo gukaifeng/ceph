@@ -108,7 +108,8 @@ export class MultiClusterService {
     clusterFsid = '',
     prometheusApiUrl = '',
     ssl = false,
-    cert = ''
+    cert = '',
+    ttl: number
   ) {
     return this.http.post('api/multi-cluster/auth', {
       url,
@@ -120,7 +121,8 @@ export class MultiClusterService {
       cluster_fsid: clusterFsid,
       prometheus_api_url: prometheusApiUrl,
       ssl_verify: ssl,
-      ssl_certificate: cert
+      ssl_certificate: cert,
+      ttl: ttl
     });
   }
 
@@ -130,7 +132,8 @@ export class MultiClusterService {
     password: string,
     token = '',
     ssl = false,
-    cert = ''
+    cert = '',
+    ttl: number
   ) {
     return this.http.put('api/multi-cluster/reconnect_cluster', {
       url,
@@ -138,7 +141,8 @@ export class MultiClusterService {
       password,
       token,
       ssl_verify: ssl,
-      ssl_certificate: cert
+      ssl_certificate: cert,
+      ttl: ttl
     });
   }
 
